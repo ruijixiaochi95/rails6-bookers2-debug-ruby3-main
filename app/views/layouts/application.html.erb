@@ -10,6 +10,7 @@
   </head>
   <body>
     <%= render 'layouts/header' %>
+    <%= render 'layouts/search',range: @range,word: @word %>
       <main>
         <p id="notice"><%= notice %></p>
         <%= yield %>
