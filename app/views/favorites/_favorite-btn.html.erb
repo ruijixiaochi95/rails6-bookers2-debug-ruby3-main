@@ -3,7 +3,7 @@
     <span style="color:red;">♥︎<span/><%= book.favorites.count %>
   <% end %>
   <% else %>
-  <%= link_to book_favorites_path(book), method: :post,remote: true do %>
+  <%= link_to book_favorites_path(book), method: :post, remote: true do %>
     <span style="color:blue;">♥</span><%= book.favorites.count %>
   <% end %>
 <% end %>
