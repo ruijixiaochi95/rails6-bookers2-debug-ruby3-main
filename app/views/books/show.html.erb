@@ -30,6 +30,7 @@
             </td>
            <td class="favorite-btn"><%= render "favorites/favorite-btn", book: @book %></td>
            <td class="comments-count">コメント数: <%= @book.book_comments.count %></td>
+           <td>閲覧数: <%= @book.view_counts.count %></td>
         </tr>
       </table>
       <table class="book_comments">

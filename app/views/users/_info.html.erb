@@ -34,7 +34,7 @@
     <% end %>
     <th>
       <% if current_user != user && current_user.following?(user) && user.following?(current_user) %>
-       <%= link_to 'チャットを始める', user_chat_path(user.id), class: "btn btn-primary" %>
+       <%= link_to 'チャットを始める', chat_path(user.id), class: "btn btn-primary" %>
       <% end %>
     </th>
     <% end %>
