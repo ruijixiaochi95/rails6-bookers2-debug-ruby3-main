@@ -9,12 +9,12 @@
   <tbody>
       <tr>
         <td>
-          <%= today_book.count %>
+          <%= @today_book.count %>
         </td>
         <td>
-          <%= yesterday_book.count %>
+          <%= @yesterday_book.count %>
         </td>
-        <% if yesterday_book.count == 0 %>
+        <% if @yesterday_book.count == 0 %>
 	       <td>前日の投稿はなし</td>
 	      <% else %>
         <td>
@@ -37,12 +37,12 @@
   <tbody>
       <tr>
         <td>
-          <%= this_week_book.count %>
+          <%= @this_week_book.count %>
         </td>
         <td>
-          <%= last_week_book.count %>
+          <%= @last_week_book.count %>
         </td>
-        <% if last_week_book.count == 0 %>
+        <% if @last_week_book.count == 0 %>
         <td>前週の投稿はなし</td>
         <% else %>
         <td>
@@ -71,19 +71,17 @@
   <tbody>
 
       <tr>
-        <td><%= books.created_6day_ago.count %></td>
-        <td><%= books.created_5day_ago.count %></td>
-        <td><%= books.created_4day_ago.count %></td>
-        <td><%= books.created_3day_ago.count %></td>
-        <td><%= books.created_2day_ago.count %></td>
-        <td><%= books.created_yesterday.count %></td>
-        <td><%= books.created_today.count %></td>
+        <td><%= @books.created_6day_ago.count %></td>
+        <td><%= @books.created_5day_ago.count %></td>
+        <td><%= @books.created_4day_ago.count %></td>
+        <td><%= @books.created_3day_ago.count %></td>
+        <td><%= @books.created_2day_ago.count %></td>
+        <td><%= @books.created_yesterday.count %></td>
+        <td><%= @books.created_today.count %></td>
       </tr>
   </tbody>
 </table>
-
 <canvas id="myLineChart"></canvas>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script>
     $(document).on('turbolinks:load', function() {
       var ctx = document.getElementById("myLineChart");
@@ -95,13 +93,13 @@
             {
               label: '投稿した本の数',
               data: [
-                <%= books.created_6day_ago.count %>,
-                <%= books.created_5day_ago.count %>, 
-                <%= books.created_4day_ago.count %>, 
-                <%= books.created_3day_ago.count %>, 
-                <%= books.created_2day_ago.count %>, 
-                <%= books.created_yesterday.count %>, 
-                <%= books.created_today.count %>
+                <%= @books.created_6day_ago.count %>,
+                <%= @books.created_5day_ago.count %>, 
+                <%= @books.created_4day_ago.count %>, 
+                <%= @books.created_3day_ago.count %>, 
+                <%= @books.created_2day_ago.count %>, 
+                <%= @books.created_yesterday.count %>, 
+                <%= @books.created_today.count %>
               ],
               borderColor: "rgba(0,0,255,1)",
               backgroundColor: "rgba(0,0,0,0)",
@@ -128,5 +126,5 @@
       });
     });
   </script>
-  
-  
+
+
