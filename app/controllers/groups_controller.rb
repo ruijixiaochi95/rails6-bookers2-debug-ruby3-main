@@ -1,50 +1,55 @@
-class GroupController < ApplicationController
-  bfore_action :authenticate_user!
+class GroupsController < ApplicationController
+  before_action :authenticate_user!
   before_action :ensure_correct_user, only: [:edit, :update]
-  
+
   def new
     @group = Group.new
-  end 
-  
+  end
+
   def edit
-  end 
-  
+  end
+
   def index
     @book = Book.new
     @groups = Group.all
     @user = User.find(current_user.id)
-  end 
-  
+  end
+
   def show
     @book = Book.new
     @user = User.find(current_user.id)
     @group = @group.find(params[:id])
   end
-  
+
   def create
     @group = Group.new(group_params)
     @group.owner_id = current_user.id
     if @group.save
-      redirect_group_path
-    else 
+      redirect_to groups_path
+    else
       render 'new'
-    end 
+    end
   end
-  
+
   def update
     if @group.update(group_params)
       redirect_to groups_path
-    else 
+    else
       render "edit"
-    end 
-  end 
-  
+    end
+  end
+
   private
-  
+
   def group_params
     params.require(:group).permit(:name, :introduction, :group_image)
-  end 
-  
-  
-  
+  end
+
+  def ensure_correct_user
+    @group = Group.find(params[:id])
+    unless @group.owner_id == current_user.id
+      redirect_to groups_path
+    end
+  end
+
 end
