@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     get 'followers' => 'relationships#followers', as: 'followers'
     get "search_form", to: "users#search_form"
   end
+  resources :groups,only: [:index, :show, :edit, :update, :create, :new]
   resources :chats, only: [:show, :create]
   get "search" => "searches#search"
   get 'home/about' => 'homes#about', as: 'about'
