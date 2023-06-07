@@ -17,8 +17,8 @@ class GroupsController < ApplicationController
 
   def show
     @book = Book.new
-    @user = User.find(current_user.id)
-    @group = @group.find(params[:id])
+    @user = User.find(params[:id])
+    @group = Group.find(params[:id])
   end
 
   def create
