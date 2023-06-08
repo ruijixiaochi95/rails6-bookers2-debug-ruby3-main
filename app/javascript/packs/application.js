@@ -15,11 +15,18 @@ import Chart from 'chart.js/auto';
 
 import "../stylesheets/application"
 
+import Raty from "raty.js"
+window.raty = function(elem,opt) {
+  let raty =  new Raty(elem,opt)
+  raty.init();
+  return raty;
+}
+
 
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
 global.$ = jQuery;
-window.$ = jQuery;
+window.$ = window.jQuery = require('jquery');
 global.Chart = Chart;
