@@ -59,3 +59,4 @@ gem 'devise'
 gem 'jquery-rails'
 
 gem 'net-smtp'
+gem 'dotenv-rails'
