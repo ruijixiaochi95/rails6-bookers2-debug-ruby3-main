@@ -11,6 +11,7 @@
   <body>
     <%= render 'layouts/header' %>
     <%= render 'layouts/search',range: @range,word: @word %>
+    <%= render 'tagsearches/tagsearch' %>
       <main>
         <p id="notice"><%= notice %></p>
         <%= yield %>

@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   resources :chats, only: [:show, :create]
   get "search" => "searches#search"
   get 'home/about' => 'homes#about', as: 'about'
+  get 'tagsearches/search', to: 'tagsearches#search'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
 end
